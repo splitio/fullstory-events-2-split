@@ -10,8 +10,8 @@ Install in AWS.  Give the lambda a functional URL, and provide the function URL 
 
 Copy your keys (carefully) into:
 
- - SPLIT_API_TOKEN file (server-side API key for your desired environment)
- - FULLSTORY_API_TOKEN (I used admin, but you can experiment)
+ - SPLIT_API_KEY file (server-side API key for your desired environment)
+ - FULLSTORY_API_KEY (I used admin, but you can experiment)
 
 ```
 > npm install 
