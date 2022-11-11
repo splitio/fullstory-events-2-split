@@ -37,7 +37,16 @@ exports.handler = async (event) => {
     const body = JSON.parse(event.body);
     console.log(body.data);
 
-    const userId = body.data.sessionUrl.split('/').pop().split(':')[0];
+    let userId;
+    if(body.data.sessionUrl) {
+        userId = body.data.sessionUrl.split('/').pop().split(':')[0];
+    } else {
+        const response = {
+            statusCode: 200,
+            body: JSON.stringify('no sessionUrl found; noop')
+        }
+        return response;
+    }
     console.log('userId: ' + userId);
 
     const apiKey = fs.readFileSync('FULLSTORY_API_KEY', 'utf8').trim();
