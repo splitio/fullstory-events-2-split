@@ -72,10 +72,17 @@ exports.handler = async (event) => {
             trafficTypeName: "user", 
             key: key, 
             timestamp: new Date(body.data.timestamp).getTime(), 
-            // value: 42,
             properties: flattenObject(body.data.properties)
         }   
     ];
+
+    let splitValue = NaN;
+    const splitProps = body.data.properties.split;
+    // console.log(splitProps);
+    if(splitProps && splitProps.value_real) {
+        events[0]['value'] = splitProps.value_real;
+    }
+
     const splitApiKey = fs.readFileSync('SPLIT_API_KEY', 'utf8').trim();
     console.log(events);
     await axios.post('https://events.split.io/api/events/bulk', events, { headers: {'Authorization': 'Bearer ' + splitApiKey }}) 

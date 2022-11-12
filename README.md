@@ -5,6 +5,9 @@ Using the FullStory events webhook, you can pass FullStory events to Split for u
 ```javascript
 const props = 
 {
+	split: {
+		value: 42
+	},
 	foo:false,
 	bar: {
 		changeNumber_real:1667920819383,
@@ -23,26 +26,9 @@ FS.event('colorful_click', props);
 ```
 This transforms into the corresponding Split event:
 ```json
-{
-  "environmentId": "194da2f0-3e22-11ea-ba75-12f2f63694e5",
-  "environmentName": "Prod-Default",
-  "eventTypeId": "colorful_click",
-  "key": "truncate_session_id",
-  "properties": {
-    "bar.changeNumber_real": "1667920819383",
-    "bar.feature_str": "multivariant_demo",
-    "colors.invisible.noface.character_str": "miyazake",
-    "colors.prison_strs": "[\"gray\"]",
-    "colors.rainbow_strs": "[\"red\", \"orange\", \"yellow\"]",
-    "foo_bool": "false"
-  },
-  "receptionTimestamp": 1668284695379,
-  "timestamp": 1668284620922,
-  "trafficTypeId": "194c6a70-3e22-11ea-ba75-12f2f63694e5",
-  "trafficTypeName": "user",
-  "value": 0
-}
 ```
+The hierarchy is flattened, but all the same information is available.
+
 ## Installation
 
 Clone the repository in an empty directory.  
