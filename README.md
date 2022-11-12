@@ -81,7 +81,8 @@ A single node.js lambda does the work for the integration, using only the filesy
 Install in AWS.  
  - Create a new "fullstory" lambda for Nodes.js
  - Upload fullstory.zip to the Code screen of your AWS lambda.  
- - Give the lambda a functional URL to POST to it, and provide the function URL to the FullStory events webhook.  Enable CORS.
+ - Give the lambda a functional URL to POST to it.  Enable CORS and give the Allow Headers field a *  
+ - Provide the function URL to the FullStory events webhook.
 
 Use the FullStory webhook test button to make sure you get back a 200 reponse from your lambda.
 
