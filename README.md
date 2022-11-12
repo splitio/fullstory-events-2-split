@@ -26,9 +26,36 @@ FS.event('colorful_click', props);
 ```
 This transforms into the corresponding Split event:
 ```json
+{
+  "environmentId": "194da2f0-3e22-11ea-ba75-12f2f63694e5",
+  "environmentName": "Prod-Default",
+  "eventTypeId": "colorful_click",
+  "key": "truncate_session_id",
+  "properties": {
+    "bar.changeNumber_real": "1667920819383",
+    "bar.feature_str": "multivariant_demo",
+    "colors.invisible.noface.character_str": "miyazake",
+    "split.value_real": "42",
+    "colors.prison_strs": "[\"gray\"]",
+    "colors.rainbow_strs": "[\"red\", \"orange\", \"yellow\"]",
+    "foo_bool": "false"
+  },
+  "receptionTimestamp": 1668286727292,
+  "timestamp": 1668286631425,
+  "trafficTypeId": "194c6a70-3e22-11ea-ba75-12f2f63694e5",
+  "trafficTypeName": "user",
+  "value": 42
+}
 ```
 The hierarchy is flattened, but all the same information is available.
 
+Note that if you want Split value, you must put the value in a split{} section, as shown in the example above.
+
+```javascript
+split: {
+  value: 42
+}, // etc.
+```
 ## Installation
 
 Clone the repository in an empty directory.  
