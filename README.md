@@ -4,23 +4,21 @@ Using the FullStory events webhook, you can pass FullStory events to Split for u
 
 ```javascript
 const props = 
-	{
-		foo:false,
-		bar:
-			{
-				changeNumber_real:1667920819383,
-				feature_str:"multivariant_demo",
-			},
-		colors: {
-			rainbow: ["red", "orange", "yellow"],
-			prison: ["gray"],
-			invisible: {
-				noface: {
-					character: "miyazake"
-				}
+{
+	foo:false,
+	bar: {
+		changeNumber_real:1667920819383,
+		feature_str:"multivariant_demo",
+	}, colors: {
+		rainbow: ["red", "orange", "yellow"],
+		prison: ["gray"],
+		invisible: {
+			noface: {
+				character: "miyazake"
 			}
 		}
-	};	
+	}
+};	
 FS.event('colorful_click', props);	
 ```
 
