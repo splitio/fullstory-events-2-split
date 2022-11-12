@@ -72,7 +72,8 @@ exports.handler = async (event) => {
             trafficTypeName: "user", 
             key: key, 
             timestamp: new Date(body.data.timestamp).getTime(), 
-            properties: flattenObject(body.data.properties)
+            properties: flattenObject(body.data.properties),
+            source: "FullStory"
         }   
     ];
 
