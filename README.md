@@ -62,8 +62,11 @@ Clone the repository in an empty directory.
 
 Inside the directory created, copy your API keys (carefully) into:
 
- - SPLIT_API_KEY file (server-side API key for your desired environment)
- - FULLSTORY_API_KEY (I used admin, but you can experiment)
+ - *SPLIT_API_KEY* (server-side API key for your desired environment)
+ - *FULLSTORY_API_KEY* (I used admin)
+
+An extra space at the end of the line, or empty lines after could spell disaster later.
+The files must have precisely these names.
 
 Now, from this same directory..
 
@@ -72,7 +75,7 @@ Now, from this same directory..
 > zip -r fullstory.zip *
 ```
 
-You can "brew install npm" on OSX.
+You can "brew install npm" on OSX.  Follow the instructions to install npm for other operating systems.
 
 The fullstory.zip should include the index.js, the key files and a full node_modules directory.
 
@@ -85,6 +88,8 @@ Install in AWS.
  - Provide the function URL to the FullStory events webhook.
 
 Use the FullStory webhook test button to make sure you get back a 200 reponse from your lambda.
+
+In testing, it sometimes took 5-10 minutes for FS.event calls to propagate to Split.
 
 ## Debug
 
