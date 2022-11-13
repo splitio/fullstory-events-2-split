@@ -1,36 +1,6 @@
 const axios = require('axios');
 const fs = require('fs');
 
-function flattenObject (obj, prefix) {
-  const flattened = {}
-
-  Object.keys(obj).forEach((key) => {
-    let value = obj[key]
-
-    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      Object.assign(flattened, flattenObject(value, (!prefix ? '' : prefix) + key + '.'))
-    } else {
-      if(Array.isArray(value)) {
-          let array_str = ''
-          for(const i in value) {
-              array_str += '"' + value[i] + '", ';
-          }
-          if(array_str.lastIndexOf(',') !== -1) {
-              array_str = array_str.substring(0, array_str.lastIndexOf(','));
-          }
-          value = '[' + array_str + ']';
-      }
-      if(!prefix) {
-          prefix = '';
-      }
-      let index = prefix + key;
-      flattened[index] =  value
-    }     
-  })    
-
-  return flattened
-}
-
 exports.handler = async (event) => {
     const startTimeInMillis = new Date().getTime();
     console.log(event);
@@ -106,4 +76,33 @@ exports.handler = async (event) => {
     return response;
 };
 
+function flattenObject (obj, prefix) {
+  const flattened = {}
+
+  Object.keys(obj).forEach((key) => {
+    let value = obj[key]
+
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      Object.assign(flattened, flattenObject(value, (!prefix ? '' : prefix) + key + '.'))
+    } else {
+      if(Array.isArray(value)) {
+          let array_str = ''
+          for(const i in value) {
+              array_str += '"' + value[i] + '", ';
+          }
+          if(array_str.lastIndexOf(',') !== -1) {
+              array_str = array_str.substring(0, array_str.lastIndexOf(','));
+          }
+          value = '[' + array_str + ']';
+      }
+      if(!prefix) {
+          prefix = '';
+      }
+      let index = prefix + key;
+      flattened[index] =  value
+    }     
+  })    
+
+  return flattened
+}
 
