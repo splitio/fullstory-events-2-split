@@ -89,7 +89,7 @@ Install in AWS.
 
 Use the FullStory webhook test button to make sure you get back a 200 reponse from your lambda.
 
-In testing, it sometimes took 5-10 minutes for FS.event calls to propagate to Split.
+In testing, it sometimes took 5-10 minutes for FS.event calls to propagate to Split.  Try reloading your page after a minute to accelerate the event publishing.
 
 ## Debug
 
