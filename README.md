@@ -62,8 +62,8 @@ Clone the repository in an empty directory.
 
 Inside the directory created, copy your API keys (carefully) into files with the following names:
 
- - *SPLIT_API_KEY* (server-side API key for your desired environment)
- - *FULLSTORY_API_KEY* (I used admin)
+ - SPLIT_API_KEY (server-side API key for your desired environment)
+ - FULLSTORY_API_KEY (I used admin)
 
 An extra space at the end of the line, or empty lines after could spell disaster later.
 The files must have precisely these names.
