@@ -60,7 +60,7 @@ split: {
 
 Clone the repository in an empty directory.  
 
-Inside the directory created, copy your API keys (carefully) into:
+Inside the directory created, copy your API keys (carefully) into files with the following names:
 
  - *SPLIT_API_KEY* (server-side API key for your desired environment)
  - *FULLSTORY_API_KEY* (I used admin)
